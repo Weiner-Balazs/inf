@@ -1,0 +1,385 @@
+K nov. 18 14:05:33 2025   Router0   Router>en
+K nov. 18 14:05:34 2025   Router0   Router#conf
+K nov. 18 14:05:51 2025   Router0   Router(config)#hostname R3
+K nov. 18 14:06:04 2025   Router0   R3(config)#crypto key generate rsa general-keys modulus 1024
+K nov. 18 14:06:14 2025   Router0   R3(config)#ip domain-n puskas.pt
+K nov. 18 14:06:15 2025   Router0   R3(config)#crypto key generate rsa general-keys modulus 1024
+K nov. 18 14:06:30 2025   Router0   R3(config)#username admin se 123
+K nov. 18 14:06:41 2025   Router0   R3(config)#line vty 0 15
+K nov. 18 14:06:47 2025   Router0   R3(config-line)#login local 
+K nov. 18 14:06:52 2025   Router0   R3(config-line)#transport input ssh 
+K nov. 18 14:06:55 2025   Router0   R3(config-line)#?
+K nov. 18 14:06:57 2025   Router0   R3(config-line)#end
+K nov. 18 14:06:58 2025   Router0   R3#?
+K nov. 18 14:07:07 2025   Router0   R3#w
+K nov. 18 14:07:09 2025   Router0   R3#w ?
+K nov. 18 14:07:16 2025   Router0   R3#copy ?
+K nov. 18 14:07:24 2025   Router0   R3#copy running-config ?
+K nov. 18 14:08:29 2025   Router1   Router>ena
+K nov. 18 14:09:02 2025   Router2   Router>en
+K nov. 18 14:09:03 2025   Router2   Router#conf t
+K nov. 18 14:09:08 2025   Router2   Router(config)#line vty 0 15
+K nov. 18 14:09:08 2025   Router2   Router(config-line)#?
+K nov. 18 14:09:18 2025   Router2   Router(config-line)#history ?
+K nov. 18 14:09:22 2025   Router2   Router(config-line)#history size ?
+K nov. 18 14:09:45 2025   Router1   R3>ena
+K nov. 18 14:09:48 2025   Router1   R3#conf
+K nov. 18 14:09:54 2025   Router1   R3(config)#h R4
+K nov. 18 14:10:28 2025   Router2   R3>en
+K nov. 18 14:10:30 2025   Router2   R3#conf
+K nov. 18 14:10:34 2025   Router2   R3(config)#h R1
+K nov. 18 14:10:39 2025   Router3   R3>en
+K nov. 18 14:10:42 2025   Router3   R3#con
+K nov. 18 14:10:45 2025   Router3   R3#conf 
+K nov. 18 14:10:50 2025   Router3   R3(config)#h R2
+K nov. 18 14:11:57 2025   Switch0   Switch>en
+K nov. 18 14:12:12 2025   Switch0   Switch#reload 
+K nov. 18 14:12:32 2025   Switch1   Switch>en
+K nov. 18 14:12:34 2025   Switch1   Switch#reload 
+K nov. 18 14:12:39 2025   Switch0   R3>en
+K nov. 18 14:12:40 2025   Switch0   R3#conf
+K nov. 18 14:12:48 2025   Switch0   R3(config)#h SW1
+K nov. 18 14:12:55 2025   Switch0   SW1(config)#vlan 10
+K nov. 18 14:12:59 2025   Switch0   SW1(config-vlan)#name Alma
+K nov. 18 14:13:03 2025   Switch0   SW1(config-vlan)#vlan 20
+K nov. 18 14:13:07 2025   Switch0   SW1(config-vlan)#name Korte
+K nov. 18 14:13:11 2025   Switch0   SW1(config-vlan)#vlan 30 
+K nov. 18 14:13:17 2025   Switch0   SW1(config-vlan)#nam Szilva
+K nov. 18 14:13:21 2025   Switch0   SW1(config-vlan)#vlan 100
+K nov. 18 14:13:28 2025   Switch0   SW1(config-vlan)#nam Barack
+K nov. 18 14:13:35 2025   Switch0   SW1(config-vlan)#vlan 200
+K nov. 18 14:13:45 2025   Switch0   SW1(config-vlan)#nam Banan
+K nov. 18 14:13:48 2025   Switch0   SW1(config-vlan)#vlan 300
+K nov. 18 14:13:55 2025   Switch0   SW1(config-vlan)#nam Kaposzta
+K nov. 18 14:13:59 2025   Switch0   SW1(config-vlan)#vlan 99
+K nov. 18 14:14:03 2025   Switch0   SW1(config-vlan)#nam Admin
+K nov. 18 14:14:06 2025   Switch0   SW1(config-vlan)#int 10
+K nov. 18 14:14:10 2025   Switch0   SW1(config-vlan)#int vlan 10
+K nov. 18 14:14:12 2025   Switch0   SW1(config-if)#int vlan 20
+K nov. 18 14:14:17 2025   Switch0   SW1(config-if)#int vlan 30
+K nov. 18 14:14:21 2025   Switch0   SW1(config-if)#int vlan 100
+K nov. 18 14:14:23 2025   Switch0   SW1(config-if)#int vlan 200
+K nov. 18 14:14:26 2025   Switch0   SW1(config-if)#int vlan 300
+K nov. 18 14:14:29 2025   Switch0   SW1(config-if)#int vlan 99
+K nov. 18 14:14:38 2025   Switch0   SW1(config-if)#int f0/1
+K nov. 18 14:14:42 2025   Switch0   SW1(config-if)#switchport mode access 
+K nov. 18 14:14:48 2025   Switch0   SW1(config-if)#switchport access vlan 99
+K nov. 18 14:14:56 2025   Switch0   SW1(config-if)#int f0/2
+K nov. 18 14:15:01 2025   Switch0   SW1(config-if)#switchport mode access 
+K nov. 18 14:15:16 2025   Switch0   SW1(config-if)#switchport access vlan 10
+K nov. 18 14:15:20 2025   Switch0   SW1(config-if)#int f0/3
+K nov. 18 14:15:25 2025   Switch0   SW1(config-if)#switchport mode access 
+K nov. 18 14:15:28 2025   Switch0   SW1(config-if)#switchport access vlan 20
+K nov. 18 14:15:33 2025   Switch0   SW1(config-if)#int f0/4
+K nov. 18 14:15:35 2025   Switch0   SW1(config-if)#switchport mode access 
+K nov. 18 14:15:37 2025   Switch0   SW1(config-if)#switchport access vlan 30
+K nov. 18 14:15:45 2025   Switch0   SW1(config-if)#int g0/1
+K nov. 18 14:15:49 2025   Switch0   SW1(config-if)#switchport mode tr
+K nov. 18 14:15:56 2025   Switch0   SW1(config-if)#sw t a v a
+K nov. 18 14:16:00 2025   Switch0   SW1(config-if)#sw t a v ?
+K nov. 18 14:16:02 2025   Switch0   SW1(config-if)#sw t a v al
+K nov. 18 14:16:09 2025   Switch0   SW1(config-if)#sw t n v 99
+K nov. 18 14:16:15 2025   Switch0   SW1(config-if)#sw m t
+K nov. 18 14:16:29 2025   Router1   R4(config)#interface GigabitEthernet0/0
+K nov. 18 14:16:29 2025   Router1   R4(config-if)#no shutdown
+K nov. 18 14:16:31 2025   Router1   R4(config-if)#shutdown
+K nov. 18 14:16:32 2025   Router1   R4(config-if)#exit
+K nov. 18 14:16:32 2025   Router1   R4(config)#interface GigabitEthernet0/0
+K nov. 18 14:16:32 2025   Router1   R4(config-if)#exit
+K nov. 18 14:16:32 2025   Router1   R4(config)#interface GigabitEthernet0/1
+K nov. 18 14:16:33 2025   Router1   R4(config-if)#no shutdown
+K nov. 18 14:16:35 2025   Router1   R4(config-if)#exit
+K nov. 18 14:16:35 2025   Router1   R4(config)#interface GigabitEthernet0/2
+K nov. 18 14:16:37 2025   Router1   R4(config-if)#exit
+K nov. 18 14:16:37 2025   Router1   R4(config)#interface GigabitEthernet0/0
+K nov. 18 14:16:38 2025   Router1   R4(config-if)#no shutdown
+K nov. 18 14:16:47 2025   Router1   R4(config-if)#exit
+K nov. 18 14:16:47 2025   Router1   R4(config)#interface GigabitEthernet0/2
+K nov. 18 14:16:49 2025   Router1   R4(config-if)#no shutdown
+K nov. 18 14:16:49 2025   Router1   R4(config-if)#shutdown
+K nov. 18 14:16:52 2025   Router1   R4(config-if)#exit
+K nov. 18 14:16:52 2025   Router1   R4(config)#interface GigabitEthernet0/0
+K nov. 18 14:17:02 2025   Switch0   SW1(config-if)#no shutdown 
+K nov. 18 14:17:12 2025   Switch1   R3>en
+K nov. 18 14:17:14 2025   Switch1   R3#con
+K nov. 18 14:17:17 2025   Switch1   R3#conf
+K nov. 18 14:17:19 2025   Switch1   R3(config)#h SW2
+K nov. 18 14:17:27 2025   Switch0   SW1(config-if)#int vlan 99
+K nov. 18 14:18:05 2025   Switch0   SW1(config-if)#ip address 10.10.99.252
+K nov. 18 14:18:11 2025   Switch0   SW1(config-if)#ip address 10.10.99.252 255.255.255.0
+K nov. 18 14:18:20 2025   Switch1   SW2(config)#int vlan 100
+K nov. 18 14:18:23 2025   Switch1   SW2(config-if)#vlan 100
+K nov. 18 14:18:38 2025   Switch1   SW2(config-vlan)#vlan 10
+K nov. 18 14:18:43 2025   Switch1   SW2(config-vlan)#nam Alma
+K nov. 18 14:18:47 2025   Switch1   SW2(config-vlan)#vlan 20 
+K nov. 18 14:18:55 2025   Switch1   SW2(config-vlan)#nam Korte
+K nov. 18 14:18:58 2025   Switch1   SW2(config-vlan)#vlan 30
+K nov. 18 14:19:05 2025   Switch1   SW2(config-vlan)#nam Szilva
+K nov. 18 14:19:10 2025   Switch1   SW2(config-vlan)#vlan 200
+K nov. 18 14:19:19 2025   Switch1   SW2(config-vlan)#nam Banan
+K nov. 18 14:19:21 2025   Switch1   SW2(config-vlan)#vlan 100
+K nov. 18 14:19:32 2025   Switch1   SW2(config-vlan)#nam Barack
+K nov. 18 14:19:34 2025   Switch1   SW2(config-vlan)#vlan 100
+K nov. 18 14:19:39 2025   Switch1   SW2(config-vlan)#nam Kaposzta
+K nov. 18 14:19:55 2025   Switch1   SW2(config-vlan)#nam Barack
+K nov. 18 14:19:58 2025   Switch1   SW2(config-vlan)#vlan 300
+K nov. 18 14:20:00 2025   Switch1   SW2(config-vlan)#nam Kaposzta
+K nov. 18 14:20:03 2025   Switch1   SW2(config-vlan)#vlan 99
+K nov. 18 14:20:06 2025   Switch1   SW2(config-vlan)#nam Admin
+K nov. 18 14:20:12 2025   Switch1   SW2(config-vlan)#int vlan 10
+K nov. 18 14:20:14 2025   Switch1   SW2(config-if)#int vlan 20
+K nov. 18 14:20:16 2025   Switch1   SW2(config-if)#int vlan 30
+K nov. 18 14:20:19 2025   Switch1   SW2(config-if)#int vlan 100
+K nov. 18 14:20:22 2025   Switch1   SW2(config-if)#int vlan 200
+K nov. 18 14:20:25 2025   Switch1   SW2(config-if)#int vlan 300
+K nov. 18 14:20:27 2025   Switch1   SW2(config-if)#int vlan 99
+K nov. 18 14:20:37 2025   Switch1   SW2(config-if)#ip add 10.10.99.251
+K nov. 18 14:20:42 2025   Switch1   SW2(config-if)#ip add 10.10.99.251 255.255.255.0
+K nov. 18 14:21:06 2025   Switch1   SW2(config-if)#int f0/1
+K nov. 18 14:21:12 2025   Switch1   SW2(config-if)#sw m a
+K nov. 18 14:21:18 2025   Switch1   SW2(config-if)#sw a v 99
+K nov. 18 14:21:25 2025   Switch1   SW2(config-if)#int f0/2
+K nov. 18 14:21:30 2025   Switch1   SW2(config-if)#sw m a
+K nov. 18 14:21:35 2025   Switch1   SW2(config-if)#sw a v 300
+K nov. 18 14:21:51 2025   Switch1   SW2(config-if)#int f0/3
+K nov. 18 14:21:54 2025   Switch1   SW2(config-if)#sw m a
+K nov. 18 14:21:58 2025   Switch1   SW2(config-if)#sw a v 200
+K nov. 18 14:22:02 2025   Switch1   SW2(config-if)#int f0/4
+K nov. 18 14:22:03 2025   Switch1   SW2(config-if)#sw m a
+K nov. 18 14:22:07 2025   Switch1   SW2(config-if)#sw a v 300
+K nov. 18 14:22:13 2025   Switch1   SW2(config-if)#int g0/1
+K nov. 18 14:22:16 2025   Switch1   SW2(config-if)#no shutdown 
+K nov. 18 14:22:26 2025   Switch1   SW2(config-if)#sw m t
+K nov. 18 14:22:34 2025   Switch1   SW2(config-if)#sw t a v al
+K nov. 18 14:22:39 2025   Switch1   SW2(config-if)#sw t n v 99
+K nov. 18 14:22:49 2025   Router2   R1(config)#interface GigabitEthernet0/0
+K nov. 18 14:22:51 2025   Router2   R1(config)#no shutdown
+K nov. 18 14:23:06 2025   Router2   R1(config)#int g0/0.100
+K nov. 18 14:23:21 2025   Router2   R1(config)#no shutdown
+K nov. 18 14:23:23 2025   Router2   R1(config)#int g0/0.100
+K nov. 18 14:23:25 2025   Router2   R1(config)#?
+K nov. 18 14:23:32 2025   Router2   R1(config)#end
+K nov. 18 14:23:36 2025   Router2   R1#conf t
+K nov. 18 14:23:40 2025   Router2   R1#?
+K nov. 18 14:23:56 2025   Router2   R1#?
+K nov. 18 14:23:59 2025   Router2   R1#exit
+K nov. 18 14:24:01 2025   Router2   R1>ena
+K nov. 18 14:24:03 2025   Router2   R1#conf t
+K nov. 18 14:24:11 2025   Router2   R1(config)#int g0/0.100
+K nov. 18 14:24:30 2025   Router2   R1(config-subif)#encapsulation dot1Q 100
+K nov. 18 14:24:48 2025   Router2   R1(config-subif)#ip add 10.10.100.254 255.255.255.0
+K nov. 18 14:24:55 2025   Router2   R1(config-subif)#int g0/0.200
+K nov. 18 14:25:00 2025   Router2   R1(config-subif)#ip add 10.10.200.254 255.255.255.0
+K nov. 18 14:25:04 2025   Router2   R1(config-subif)#encapsulation dot1Q 200
+K nov. 18 14:25:06 2025   Router2   R1(config-subif)#ip add 10.10.200.254 255.255.255.0
+K nov. 18 14:25:10 2025   Router2   R1(config-subif)#int g0/0.300
+K nov. 18 14:25:13 2025   Router2   R1(config-subif)#encapsulation dot1Q 300
+K nov. 18 14:25:18 2025   Router2   R1(config-subif)#ip add 10.10.300.254 255.255.255.0
+K nov. 18 14:25:26 2025   Router2   R1(config-subif)#ip add 10.10.300.254 255.255.255.0
+K nov. 18 14:25:31 2025   Router2   R1(config-subif)#?
+K nov. 18 14:25:49 2025   Router2   R1(config-subif)#ip add 10.10.300.254 255.255.255.0
+K nov. 18 14:26:04 2025   Router2   R1(config-subif)#ip address ?
+K nov. 18 14:26:33 2025   Router2   R1(config-subif)#ip address 10.10.300.254 255.255.255.0
+K nov. 18 14:26:43 2025   Router2   R1(config-subif)#do sh run
+K nov. 18 14:26:58 2025   Router2   R1(config-subif)#ip address 10.10.300.254 ?
+K nov. 18 14:27:03 2025   Router2   R1(config-subif)#ip address 10.10.300.254?
+K nov. 18 14:27:06 2025   Router2   R1(config-subif)#ip address ?
+K nov. 18 14:27:10 2025   Router2   R1(config-subif)#ip address 10?
+K nov. 18 14:27:12 2025   Router2   R1(config-subif)#ip address 10.10?
+K nov. 18 14:27:38 2025   Router2   R1(config-subif)#ip address 10.10.30.254 255.255.255.0
+K nov. 18 14:27:47 2025   Router2   R1(config-subif)#int g0/0.99
+K nov. 18 14:27:55 2025   Router2   R1(config-subif)#encapsulation dot1Q 99 native 
+K nov. 18 14:28:04 2025   Router2   R1(config-subif)#ip address 10.10.99.254 255.255.255.0
+K nov. 18 14:28:07 2025   Router2   R1(config-subif)#exit
+K nov. 18 14:28:27 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.99.254 
+K nov. 18 14:28:32 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.99.253 
+K nov. 18 14:28:34 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.99.252
+K nov. 18 14:28:36 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.99.251
+K nov. 18 14:28:49 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.100.254
+K nov. 18 14:28:52 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.200.254
+K nov. 18 14:28:57 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.30.254
+K nov. 18 14:29:16 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.33.254
+K nov. 18 14:29:21 2025   Router2   R1(config)#no ip dhcp excluded-address 10.10.30.254
+K nov. 18 14:29:33 2025   Router2   R1(config)#int g0/0.300
+K nov. 18 14:29:37 2025   Router2   R1(config-subif)#encapsulation dot1Q 33
+K nov. 18 14:29:55 2025   Router2   R1(config-subif)#ip add 10.10.33.254 255.255.255.0
+K nov. 18 14:30:00 2025   Router2   R1(config-subif)#exit
+K nov. 18 14:30:22 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.30.253
+K nov. 18 14:30:24 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.20.253
+K nov. 18 14:30:27 2025   Router2   R1(config)#ip dhcp excluded-address 10.10.10.253
+K nov. 18 14:30:41 2025   Router2   R1(config)#router ospf 
+K nov. 18 14:30:43 2025   Router2   R1(config)#router ospf 1
+K nov. 18 14:30:47 2025   Router2   R1(config-router)#router-id 1.1.1.1
+K nov. 18 14:31:09 2025   Router2   R1(config-router)#network 10.10.100.0 0.0.0.255 area 0
+K nov. 18 14:31:13 2025   Router2   R1(config-router)#network 10.10.200.0 0.0.0.255 area 0
+K nov. 18 14:31:17 2025   Router2   R1(config-router)#network 10.10.33.0 0.0.0.255 area 0
+K nov. 18 14:31:22 2025   Router2   R1(config-router)#network 10.10.99.0 0.0.0.255 area 0
+K nov. 18 14:31:34 2025   Router2   R1(config-router)#network 3.3.3.0 0.0.0.3 area 0
+K nov. 18 14:31:45 2025   Router2   R1(config-router)#network 1.1.1.0 0.0.0.3 area 0
+K nov. 18 14:31:46 2025   Router2   R1(config)#interface GigabitEthernet0/0
+K nov. 18 14:31:48 2025   Router2   R1(config-if)#exit
+K nov. 18 14:31:48 2025   Router2   R1(config)#interface GigabitEthernet0/1
+K nov. 18 14:31:49 2025   Router2   R1(config-if)#no shutdown
+K nov. 18 14:31:54 2025   Router2   R1(config-if)#ip address 3.3.3.1 255.0.0.0
+K nov. 18 14:32:00 2025   Router2   R1(config-if)#ip address 3.3.3.1 255.255.255.252
+K nov. 18 14:32:04 2025   Router2   R1(config-if)#exit
+K nov. 18 14:32:04 2025   Router2   R1(config)#interface Serial0/3/0
+K nov. 18 14:32:05 2025   Router2   R1(config-if)#exit
+K nov. 18 14:32:05 2025   Router2   R1(config)#interface Serial0/3/1
+K nov. 18 14:32:06 2025   Router2   R1(config-if)#no shutdown
+K nov. 18 14:32:12 2025   Router2   R1(config-if)#ip address 1.1.1.1 255.0.0.0
+K nov. 18 14:32:18 2025   Router2   R1(config-if)#ip address 1.1.1.1 255.255.255.252
+K nov. 18 14:33:16 2025   Router2   R1(config-if)#exit
+K nov. 18 14:33:25 2025   Router2   R1(config)#ip dhcp pool Alma
+K nov. 18 14:33:37 2025   Router2   R1(dhcp-config)#network 10.10.10.0 255.255.255.0
+K nov. 18 14:33:47 2025   Router2   R1(dhcp-config)#default-router 10.10.10.253 
+K nov. 18 14:33:54 2025   Router2   R1(dhcp-config)#ip dhcp pool Korte
+K nov. 18 14:33:59 2025   Router2   R1(dhcp-config)#default-router 10.10.20.253 
+K nov. 18 14:34:09 2025   Router2   R1(dhcp-config)#network 10.10.20.0 255.255.255.0
+K nov. 18 14:34:16 2025   Router2   R1(dhcp-config)#ip dhcp pool Szilva
+K nov. 18 14:34:19 2025   Router2   R1(dhcp-config)#network 10.10.30.0 255.255.255.0
+K nov. 18 14:34:26 2025   Router2   R1(dhcp-config)#default-router 10.10.30.253 
+K nov. 18 14:34:44 2025   Router2   R1(dhcp-config)#ip dhcp pool Barack
+K nov. 18 14:34:52 2025   Router2   R1(dhcp-config)#network 10.10.100.0 255.255.255.0
+K nov. 18 14:34:58 2025   Router2   R1(dhcp-config)#default-router 10.10.100.253 
+K nov. 18 14:35:07 2025   Router2   R1(dhcp-config)#ip dhcp pool Banan
+K nov. 18 14:35:11 2025   Router2   R1(dhcp-config)#network 10.10.200.0 255.255.255.0
+K nov. 18 14:35:14 2025   Router2   R1(dhcp-config)#default-router 10.10.200.253 
+K nov. 18 14:35:22 2025   Router2   R1(dhcp-config)#ip dhcp pool Kaposzta
+K nov. 18 14:35:30 2025   Router2   R1(dhcp-config)#network 10.10.33.0 255.255.255.0
+K nov. 18 14:35:34 2025   Router2   R1(dhcp-config)#default-router 10.10.33.253 
+K nov. 18 14:35:41 2025   Router2   R1(dhcp-config)#ip dhcp pool Admin
+K nov. 18 14:35:46 2025   Router2   R1(dhcp-config)#network 10.10.99.0 255.255.255.0
+K nov. 18 14:35:52 2025   Router2   R1(dhcp-config)#default-router 10.10.99.253 
+K nov. 18 14:36:27 2025   Router1   R4(config)#int g0/0.10
+K nov. 18 14:36:37 2025   Router1   R4(config-subif)#encapsulation dot1Q 10
+K nov. 18 14:37:30 2025   Router1   R4(config-subif)#ip add 10.10.10.253 255.255.255.0
+K nov. 18 14:37:43 2025   Router1   R4(config-subif)#ip helper-address 3.3.3.1
+K nov. 18 14:37:51 2025   Router1   R4(config-subif)#int g0/0.20
+K nov. 18 14:37:56 2025   Router1   R4(config-subif)#ip helper-address 3.3.3.1
+K nov. 18 14:38:00 2025   Router1   R4(config-subif)#encapsulation dot1Q 20
+K nov. 18 14:38:06 2025   Router1   R4(config-subif)#ip add 10.10.20.253 255.255.255.0
+K nov. 18 14:38:10 2025   Router1   R4(config-subif)#int g0/0.30
+K nov. 18 14:38:13 2025   Router1   R4(config-subif)#ip helper-address 3.3.3.1
+K nov. 18 14:38:16 2025   Router1   R4(config-subif)#encapsulation dot1Q 30
+K nov. 18 14:38:23 2025   Router1   R4(config-subif)#ip add 10.10.30.253 255.255.255.0
+K nov. 18 14:38:31 2025   Router1   R4(config-subif)#int g0/0.99
+K nov. 18 14:38:52 2025   Router1   R4(config-subif)#encapsulation dot1Q 99 native 
+K nov. 18 14:39:00 2025   Router1   R4(config-subif)#encapsulation dot1Q 99 native 
+K nov. 18 14:39:07 2025   Router1   R4(config-subif)#ip add 10.10.99.253 255.255.255.0
+K nov. 18 14:39:12 2025   Router1   R4(config-subif)#ip helper-address 3.3.3.1
+K nov. 18 14:39:14 2025   Router1   R4(config-subif)#exit
+K nov. 18 14:39:19 2025   Router1   R4(config)#router ospf 1
+K nov. 18 14:39:23 2025   Router1   R4(config-router)#router-id 4.4.4.4
+K nov. 18 14:39:43 2025   Router1   R4(config-router)#network 10.10.10.0 0.0.0.255 area 0
+K nov. 18 14:39:46 2025   Router1   R4(config-router)#network 10.10.20.0 0.0.0.255 area 0
+K nov. 18 14:39:49 2025   Router1   R4(config-router)#network 10.10.30.0 0.0.0.255 area 0
+K nov. 18 14:39:53 2025   Router1   R4(config-router)#network 10.10.99.0 0.0.0.255 area 0
+K nov. 18 14:40:05 2025   Router1   R4(config-router)#network 3.3.3.0 0.0.0.3 area 0
+K nov. 18 14:40:16 2025   Router1   R4(config-router)#network 2.2.2.0 0.0.0.3 area 0
+K nov. 18 14:40:23 2025   Router1   R4(config)#interface Serial0/3/0
+K nov. 18 14:40:24 2025   Router1   R4(config-if)#no shutdown
+K nov. 18 14:40:38 2025   Router1   R4(config-if)#ip address 2.2.2.1 255.0.0.0
+K nov. 18 14:40:43 2025   Router1   R4(config-if)#ip address 2.2.2.1 255.255.255.252
+K nov. 18 14:40:50 2025   Router0   R3(config)#interface Serial0/3/0
+K nov. 18 14:40:51 2025   Router0   R3(config-if)#no shutdown
+K nov. 18 14:40:56 2025   Router0   R3(config-if)#ip address 2.2.2.2 255.0.0.0
+K nov. 18 14:41:03 2025   Router0   R3(config-if)#ip address 2.2.2.2 255.255.255.252
+K nov. 18 14:41:06 2025   Router0   R3(config-if)#exit
+K nov. 18 14:41:06 2025   Router0   R3(config)#interface GigabitEthernet0/1
+K nov. 18 14:41:08 2025   Router0   R3(config-if)#exit
+K nov. 18 14:41:08 2025   Router0   R3(config)#interface GigabitEthernet0/0
+K nov. 18 14:41:10 2025   Router0   R3(config-if)#no shutdown
+K nov. 18 14:41:19 2025   Router0   R3(config-if)#ip address 5.5.5.2 255.0.0.0
+K nov. 18 14:41:24 2025   Router0   R3(config-if)#ip address 5.5.5.2 255.255.255.252
+K nov. 18 14:41:34 2025   Router0   R3(config-if)#exit
+K nov. 18 14:41:38 2025   Router0   R3(config)#router ospf 1
+K nov. 18 14:41:49 2025   Router0   R3(config-router)#router-id 3.3.3.3
+K nov. 18 14:42:03 2025   Router0   R3(config-router)#network 2.2.2.0 0.0.0.3 area 0
+K nov. 18 14:42:08 2025   Router0   R3(config-router)#network 2.2.2.0 0.0.0.3 area 0
+K nov. 18 14:42:15 2025   Router0   R3(config-router)#network 5.5.5.0 0.0.0.3 area 0
+K nov. 18 14:42:21 2025   Router3   R2>enable
+K nov. 18 14:42:21 2025   Router3   R2#configure terminal
+K nov. 18 14:42:21 2025   Router3   R2(config)#interface GigabitEthernet0/1
+K nov. 18 14:42:22 2025   Router3   R2(config-if)#exit
+K nov. 18 14:42:22 2025   Router3   R2(config)#interface GigabitEthernet0/0
+K nov. 18 14:42:23 2025   Router3   R2(config-if)#no shutdown
+K nov. 18 14:42:29 2025   Router3   R2(config-if)#ip address 4.4.4.2 255.0.0.0
+K nov. 18 14:42:37 2025   Router3   R2(config-if)#ip address 4.4.4.2 255.255.255.252
+K nov. 18 14:42:37 2025   Router3   R2(config-if)#exit
+K nov. 18 14:42:37 2025   Router3   R2(config)#interface Serial0/3/1
+K nov. 18 14:42:38 2025   Router3   R2(config-if)#no shutdown
+K nov. 18 14:42:59 2025   Router3   R2(config-if)#ip address 1.1.1.2 255.0.0.0
+K nov. 18 14:43:04 2025   Router3   R2(config-if)#ip address 1.1.1.2 255.255.255.252
+K nov. 18 14:43:12 2025   Router3   R2(config-if)#exit
+K nov. 18 14:43:16 2025   Router3   R2(config)#router ospf 1
+K nov. 18 14:43:22 2025   Router3   R2(config-router)#router-id 2.2.2.2
+K nov. 18 14:43:33 2025   Router3   R2(config-router)#netw 1.1.1.0 0.0.0.3 area 0
+K nov. 18 14:43:40 2025   Router3   R2(config-router)#netw 4.4.4.0 0.0.0.3 area 0
+K nov. 18 14:46:29 2025   Router1   R4(config)#do sh run
+K nov. 18 14:46:36 2025   Switch0   SW1>ena
+K nov. 18 14:46:38 2025   Switch0   SW1#conf t
+K nov. 18 14:46:40 2025   Switch0   SW1(config)#do sh run
+K nov. 18 14:47:05 2025   Switch0   SW1(config)#do sh int sw
+K nov. 18 14:48:00 2025   Router1   R4(config)#interface GigabitEthernet0/1
+K nov. 18 14:48:07 2025   Router1   R4(config-if)#ip address 3.3.3.2 255.0.0.0
+K nov. 18 14:48:12 2025   Router1   R4(config-if)#ip address 3.3.3.2 255.255.255.252
+K nov. 18 14:50:53 2025   Router2   R1>en 
+K nov. 18 14:50:56 2025   Router2   R1#sh run
+K nov. 18 14:51:25 2025   Switch1   SW2>en
+K nov. 18 14:51:27 2025   Switch1   SW2#conf t
+K nov. 18 14:51:32 2025   Switch1   SW2(config)#do sh run
+K nov. 18 14:53:49 2025   Switch1   SW2(config)#int f0/4
+K nov. 18 14:53:51 2025   Switch1   SW2(config-if)#?
+K nov. 18 14:54:00 2025   Switch1   SW2(config-if)#sw a v 100
+K nov. 18 14:54:03 2025   Switch1   SW2(config-if)#do sh run
+K nov. 18 14:55:15 2025   Router1   R4(config-if)#do sh run
+K nov. 18 14:55:43 2025   Router1   R4(config-if)#end
+K nov. 18 14:55:45 2025   Router1   R4#sh ?
+K nov. 18 14:55:49 2025   Router1   R4#sh ip r?
+K nov. 18 14:55:51 2025   Router1   R4#sh ip ?
+K nov. 18 14:55:54 2025   Router1   R4#sh ip os
+K nov. 18 14:55:59 2025   Router1   R4#sh ip ?
+K nov. 18 14:56:03 2025   Router1   R4#sh ip route 
+K nov. 18 14:58:41 2025   Router1   R4#ip ?
+K nov. 18 14:58:45 2025   Router1   R4#sh ip ?
+K nov. 18 14:58:48 2025   Router1   R4#sh ip ospf ?
+K nov. 18 14:58:49 2025   Router1   R4#sh ip ospf neighbor 
+K nov. 18 14:59:06 2025   Router1   R4#sh ip osp da
+K nov. 18 14:59:25 2025   Router1   R4#sh ip rou
+K nov. 18 15:00:14 2025   Router2   R1#sh ip ospf ?
+K nov. 18 15:00:16 2025   Router2   R1#sh ip ospf database 
+K nov. 18 15:00:20 2025   Router2   R1#sh ip ro
+K nov. 18 15:01:22 2025   Router2   R1#ena
+K nov. 18 15:01:25 2025   Router2   R1#conf t
+K nov. 18 15:01:54 2025   Router2   R1(config)#int g0/0.99
+K nov. 18 15:02:08 2025   Router2   R1(config-subif)#ip ospf cost 10
+K nov. 18 15:02:21 2025   Router2   R1(config-subif)#ex
+K nov. 18 15:08:19 2025   Router1   R4>ena
+K nov. 18 15:08:30 2025   Router1   R4#conf t
+K nov. 18 15:08:37 2025   Router1   R4(config)#ip route ?
+K nov. 18 15:08:41 2025   Router1   R4(config)#ip route 0.0.0.0 0.0.0.0
+K nov. 18 15:08:48 2025   Router1   R4(config)#ip route 0.0.0.0 0.0.0.0 3.3.3.1
+K nov. 18 15:09:03 2025   Router2   R1(config)#ip route 0.0.0.0 0.0.0.0 3.3.3.2
+K nov. 18 15:09:52 2025   Switch1   SW2>en
+K nov. 18 15:09:54 2025   Switch1   SW2#conf
+K nov. 18 15:09:57 2025   Switch1   SW2(config)#do sh run
+K nov. 18 15:10:24 2025   Router2   R1(config)#do sh run
+K nov. 18 15:11:01 2025   Router0   R3>en
+K nov. 18 15:11:03 2025   Router0   R3#sh ?
+K nov. 18 15:11:07 2025   Router0   R3#sh rou
+K nov. 18 15:11:09 2025   Router0   R3#sh rout
+K nov. 18 15:11:13 2025   Router0   R3#sh ip route 
+K nov. 18 15:11:40 2025   Router0   R3#sh ip ?
+K nov. 18 15:11:42 2025   Router0   R3#sh ip ospf ?
+K nov. 18 15:11:45 2025   Router0   R3#sh ip ospf database 
+K nov. 18 15:12:25 2025   Router1   R4(config)#router ospf 1
+K nov. 18 15:12:29 2025   Router1   R4(config-router)#default-information originate 
+K nov. 18 15:13:20 2025   Router1   R4(config-router)#redistribute static 
+K nov. 18 15:13:44 2025   Router2   R1(config)#router ospf 1
+K nov. 18 15:13:48 2025   Router2   R1(config-router)#default-information originate 
+K nov. 18 15:13:51 2025   Router2   R1(config-router)#redistribute static 
+K nov. 18 15:15:45 2025   Router2   R1(config-router)#do sh ip ro
+K nov. 18 15:18:01 2025   Router2   R1(config-router)#exit
+K nov. 18 15:18:08 2025   Router2   R1(config)#ip route ?
+K nov. 18 15:18:28 2025   Router2   R1(config)#ip route 10.10.99.0 255.255.255.0 3.3.3.2
